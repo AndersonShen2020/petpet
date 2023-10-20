@@ -1,0 +1,31 @@
+{
+  "name": "vite-vue-docker-test",
+  "forwardPorts": [5000],
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true,
+          "source.fixAll.stylelint": true
+        }
+      }
+    }
+  },
+
+  // 當 Container 剛建立，要執行的指令
+  "postCreateCommand": "npm ci"
+
+  // 每次打開 Container，要執行的指令
+  // "postStartCommand": "npm run dev"
+}
